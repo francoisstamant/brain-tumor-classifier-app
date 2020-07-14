@@ -44,13 +44,13 @@ server = app.server
 
 app.layout = html.Div([
     
-    html.H1(children='BRAIN TUMOR CLASSIFIER', style={'textAlign': 'center'
+   html.H1(children='BRAIN TUMOR CLASSIFIER', style={'textAlign': 'center'
         }),
     
     
     dcc.Markdown('''
                 ###### Step 1: Import a single image using upload button
-                ###### Step 2: Wait for prediction to appear
+                ###### Step 2: Wait for prediction and interesting facts to appear
     '''),
     
     
@@ -75,8 +75,11 @@ app.layout = html.Div([
     ),
     html.Div(id='output-image-upload', style={'position':'absolute', 'left':'200px', 'top':'250px'}),
     
-    html.Div(id='prediction', style={'position':'absolute', 'left':'950px', 'top':'390px', 'font-size':'x-large'}),
-    html.Div(id='prediction2', style={'position':'absolute', 'left':'950px', 'top':'435px', 'font-size': 'x-large'}),
+    html.Div(id='prediction', style={'position':'absolute', 'left':'800px', 'top':'310px', 'font-size':'x-large'}),
+    html.Div(id='prediction2', style={'position':'absolute', 'left':'800px', 'top':'365px', 'font-size': 'x-large'}),
+    
+    html.Div(id='facts', style={'position':'absolute', 'left':'800px', 'top':'465px', 'font-size': 'large',\
+                               'height': '200px', 'width': '500px'}),
 
 ])
 
@@ -85,7 +88,8 @@ def parse_contents(contents):
     return html.Img(src=contents, style={'height':'450px', 'width':'450px'})
 
 
-@app.callback([Output('output-image-upload', 'children'), Output('prediction', 'children'), Output('prediction2', 'children')],
+@app.callback([Output('output-image-upload', 'children'), Output('prediction', 'children'), Output('prediction2', 'children'), 
+              Output('facts', 'children')],
               [Input('upload-image', 'contents')])
 
 def update_output(list_of_contents):        
@@ -113,18 +117,37 @@ def update_output(list_of_contents):
         classification = np.where(answ == np.amax(answ))[1][0]
         pred=str(round(answ[0][classification]*100 ,3)) + '% confidence there is ' + names(classification)   
         
-        
-        if classification != 2:
+        #Second prediction and facts about tumor if there is
+        if classification==0:
+            facts = 'Glioma is a type of tumor that occurs in the brain and spinal cord.\
+                    A glioma can affect your brain function and be life-threatening depending on\
+                    its location and rate of growth. Gliomas are one of the most common types of primary brain tumors.'
             no_tumor = str(round(answ[0][2]*100 ,3))
             pred2 = no_tumor + '% confidence there is no tumor'
-        else:
-            pred2 = None
+            
+        elif classification==1:
+            facts = 'A meningioma is a tumor that arises from the meninges, the membranes that surround your brain.\
+                    Most meningiomas grow very slowly, often over many years without causing symptoms.\
+                    They occur more commonly in women.'
+            no_tumor = str(round(answ[0][2]*100 ,3))
+            pred2 = no_tumor + '% confidence there is no tumor'
         
-        return children, pred, pred2
+        elif classification==3:
+            facts = 'Pituitary tumors are abnormal growths that develop in your pituitary gland.\
+                    Most pituitary tumors are noncancerous (benign) growths that remain in your pituitary\
+                    gland or surrounding tissues.'
+            no_tumor = str(round(answ[0][2]*100 ,3))
+            pred2 = no_tumor + '% confidence there is no tumor'
+        
+        else:
+            facts=None
+            pred2 = None
+
+        
+        return children, pred, pred2, facts
     
     else:
-        return (no_update, no_update, no_update)      
-
+        return (no_update, no_update, no_update, no_update)  
 
 if __name__ == '__main__':
     app.run_server(debug=True)
