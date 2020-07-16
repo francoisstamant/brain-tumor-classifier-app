@@ -119,14 +119,13 @@ def update_output(list_of_contents):
         if classification==0:
             facts = 'Glioma is a type of tumor that occurs in the brain and spinal cord.\
                     A glioma can affect your brain function and be life-threatening depending on\
-                    its location and rate of growth. Gliomas are one of the most common types of primary brain tumors.'
+                    its location and rate of growth.'
             no_tumor = str(round(answ[0][2]*100 ,3))
             pred2 = no_tumor + '% confidence there is no tumor'
             
         elif classification==1:
             facts = 'A meningioma is a tumor that arises from the meninges, the membranes that surround your brain.\
-                    Most meningiomas grow very slowly, often over many years without causing symptoms.\
-                    They occur more commonly in women.'
+                    Most meningiomas grow very slowly, often over many years without causing symptoms.'
             no_tumor = str(round(answ[0][2]*100 ,3))
             pred2 = no_tumor + '% confidence there is no tumor'
         
@@ -140,13 +139,11 @@ def update_output(list_of_contents):
         else:
             facts=None
             pred2 = None
-
         
         return children, pred, pred2, facts
     
     else:
         return (no_update, no_update, no_update, no_update)  
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)
