@@ -17,8 +17,6 @@ from PIL import Image
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import imshow
 import pandas as pd
 from keras.models import load_model
 
