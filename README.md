@@ -8,4 +8,4 @@ DATA USED TO BUILD CNN HERE: https://www.kaggle.com/sartajbhuvaji/brain-tumor-cl
 
 APP AVAILABLE HERE:  https://brain-mri-classifier.herokuapp.com/ 
 
-For full article presenting and describing the app, go here: 
+For full article presenting and describing the app, go here: https://towardsdatascience.com/building-a-brain-tumor-classification-app-e9a0eb9f068
