@@ -16,3 +16,5 @@ For full article presenting and describing the app, go here: https://towardsdata
 2. requirements.txt (pip install -r requirements.txt)
 
 model_final.h5 file is the model created using the CNN_model.ipynb file. 
+
+# NOT NECESSARY TO RUN CNN_model.ipynb
