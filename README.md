@@ -1,10 +1,5 @@
 # brain-tumor-classifier
 
-# Branches
-
-Master branch contains all that is needed to run the app.
-CNN_model branch also contains the CNN model that generates model_final.h5
-
 # Description 
 
 Dash app to classify brain MRIs for three types of tumors (meningioma, pituitary and glioma). Takes an image as an input and returns predictions and some facts. 
@@ -19,3 +14,5 @@ For full article presenting and describing the app, go here: https://towardsdata
 
 1. Python 3.7
 2. requirements.txt (pip install -r requirements.txt)
+
+model_final.h5 is the model created with CNN 
