@@ -10,6 +10,8 @@ APP AVAILABLE HERE:  https://brain-mri-app.herokuapp.com (can be slow to open, a
 
 For full article presenting and describing the app, go here: https://towardsdatascience.com/building-a-brain-tumor-classification-app-e9a0eb9f068
 
+You can use meningioma.jpg file to test the app.
+
 # Prerequisites
 
 1. Python 3.7
