@@ -6,7 +6,7 @@ Dash app to classify brain MRIs for three types of tumors (meningioma, pituitary
 
 DATA USED TO BUILD CNN HERE: https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri
 
-APP AVAILABLE HERE:  https://brain-mri-app.herokuapp.com (can be slow to open, as it is likely in sleep mode)
+APP AVAILABLE HERE:  https://brain-mri-app.herokuapp.com (can be slow to open, as it is likely in sleep mode!)
 
 For full article presenting and describing the app, go here: https://towardsdatascience.com/building-a-brain-tumor-classification-app-e9a0eb9f068
 
