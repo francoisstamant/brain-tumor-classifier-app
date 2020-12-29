@@ -28,4 +28,3 @@ pybase64==1.0.1
 numpy==1.18.1
 regex==2020.6.8
 tensorflow==1.15.4
-tensorflow>=2.4.0
