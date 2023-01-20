@@ -1,3 +1,4 @@
+#Load all needed librairies and packages
 import dash
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
